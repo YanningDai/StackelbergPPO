@@ -1,0 +1,64 @@
+<mujoco model="climber">
+<size nconmax="512" njmax="512" />
+  <asset>
+    <!-- <texture name="skybox" type="skybox" builtin="flat" rgb1="1 1 1" width="800" height="800" />
+    <texture name="grid" type="2d" builtin="flat" rgb1="0.8 0.8 0.8" width="300" height="300" mark="edge"/>
+    <material name="grid" texture="grid"/>
+    <material name="self" rgba=".7 .5 .3 1"/> -->
+    <texture name="skybox" type="skybox" builtin="gradient" rgb1=".2 .3 .4" rgb2="0 0 0" width="800" height="800" mark="random" markrgb="1 1 1"/>
+    <texture name="grid" type="2d" builtin="checker" rgb1="0.35 0.45 0.50" rgb2="0.20 0.30 0.35" width="300" height="300" mark="edge" markrgb="0.25 0.35 0.40"/>
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2" />
+    <material name="grid_wall" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".5" emission="1.0"/>
+    <material name="self" rgba="0.0 0.8 0.7 1.0"/>
+  </asset>
+  <visual>
+    <headlight ambient=".4 .4 .4" diffuse=".6 .6 .6" specular="0.1 0.1 0.1"/>
+    <map znear=".001"/>
+    <quality shadowsize="16384"/>
+  </visual>
+  <compiler angle="degree" coordinate="global" inertiafromgeom="true"/>
+  <default>
+    <joint armature="1" damping="1" limited="true"/>
+    <geom conaffinity="0" condim="1" margin="0.001" solimp=".8 .8 .01" solref=".02 1" rgba=".7 .5 .3 1"/>
+    <motor ctrllimited="true" ctrlrange="-.4 .4"/>
+  </default>
+  <option integrator="RK4" timestep="0.002"/>
+  <worldbody>
+    <light cutoff="100" diffuse="1 1 1" dir="0 0.3 -0.6" directional="true" exponent="1" pos="0 -30 130" specular=".1 .1 .1"/>
+  
+    <geom name="floor" type="plane" pos="0 0 0" size="2 3 .125"
+          condim="3" conaffinity="1"
+          friction="2.2" rgba="1 1 1 1" material="grid"/>
+    <geom name="wall_left"  type="plane" pos="0.75 0 0" euler="0  -90 0" size="120 3.0 .125"
+          condim="3" conaffinity="1" friction="2.2" rgba="1 1 1 1" material="grid_wall"/>
+    <geom name="wall_right" type="plane" pos="-0.75 0 0" euler="0 90 0" size="120 3.0 .125"
+          condim="3" conaffinity="1" friction="2.2" rgba="1 1 1 1" material="grid_wall"/>
+
+    <geom name="wall_left_vis"  type="plane" pos="-10.75 -3 110" size="10 120 .125" euler="90 0 0"
+          contype="0" conaffinity="1" rgba="1 1 1 1" material="grid_wall"/>
+    <geom name="wall_right_vis" type="plane" pos="10.75 -3 110" size="10 120 .125" euler="90 0 0"
+          contype="0" conaffinity="1" rgba="1 1 1 1" material="grid_wall"/> 
+    <geom name="wall_front_vis" type="plane" pos="0 -3 -5" size="0.75 5 .125" euler="90 0 0"
+          contype="0" conaffinity="1" rgba="1 1 1 1" material="grid_wall"/> 
+    
+    <body name="0" pos="0 0 1.25">
+      <camera name="track" mode="trackcom" pos="0 -3 1" xyaxes="1 0 0 0 0 1"/>
+      <joint armature="0" axis="1 0 0" damping="0" limited="false" name="rootx" pos="0 0 0" stiffness="0" type="slide"/>
+      <joint armature="0" axis="0 0 1" damping="0" limited="false" name="rootz" pos="0 0 0" ref="1.25" stiffness="0" type="slide"/>
+      <joint armature="0" axis="0 1 0" damping="0" limited="false" name="0_joint" pos="0 0 1.25" stiffness="0" type="hinge"/>
+      <geom friction="4.0" fromto="-0 0 1.45 0 0 1.05" size="0.05" type="capsule"/>
+      <body name="1" pos="0 0 1.05">
+        <joint axis="0 -1 0" name="1_joint" pos="0 0 1.05" range="-180 180" type="hinge"/>
+        <geom friction="4.0" fromto="0 0 1.05 0 0 0.6" size="0.05" type="capsule"/>
+      </body>
+      <body name="2" pos="0 0 1.05">
+        <joint axis="0 -1 0" name="2_joint" pos="0 0 1.05" range="-180 180" type="hinge"/>
+        <geom friction="4.0" fromto="0 0 1.05 0 0 0.6" size="0.05" type="capsule"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="150" joint="1_joint" name="1_joint"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="150" joint="2_joint" name="2_joint"/>
+  </actuator>
+</mujoco>

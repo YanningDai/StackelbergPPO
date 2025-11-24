@@ -1,0 +1,79 @@
+# Project-specific
+single_run/
+hyper/
+debug/
+out/
+outputs/
+results/
+trace.log
+MUJOCO_LOG.TXT
+
+# Data & Logs
+wandb/
+*.log
+
+# OS
+.DS_Store
+._*
+condaenv.*.requirements.txt
+
+# MuJoCo
+mujoco_py/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Build & Distribution
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+
+# IDE & Testing
+.pytest_cache/
+.coverage
+.coverage.*
+.hypothesis/
+htmlcov/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+cython_debug/
+.ipynb_checkpoints
+.spyderproject
+.ropeproject
+.vscode/
+
+# PyBuilder & Others
+.pybuilder/
+target/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt

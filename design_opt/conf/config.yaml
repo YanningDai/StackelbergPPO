@@ -1,0 +1,120 @@
+group: StackelPPO
+project: StackelPPO
+enable_wandb: true
+base_dir: null
+
+
+
+cfg: null
+job_name: StackelPPO-test
+render: false
+tmp: false
+num_threads: 20
+gpu_index: 0
+epoch: '0'
+show_noise: false
+n: 1
+
+env_init_height: false
+
+skel_transform_nsteps: 5
+stack_follower_steps: 6
+lamda: 5
+fisher_correct: false  
+s_gradient_limit: -1 
+gradient_ratio_limit: 1.0
+project_path: null
+morph_prior: false
+
+hydra:
+  run:
+    dir: single_run/${cfg}
+
+## training settings
+lr_decay: false
+
+policy_optimizer: 'Adam'
+policy_lr: 5.e-5
+policy_momentum: 0.0
+policy_weightdecay: 0.0
+
+value_optimizer: 'Adam'
+value_lr: 3.e-4
+value_momentum: 0.0
+value_weightdecay: 0.0
+
+reward_shift: 0.0
+clip_epsilon: 0.2
+min_batch_size: 50000   
+max_epoch_num: 1000 
+mini_batch_size: 2048  
+num_optim_epoch: 10
+eval_batch_size: 10000
+norm_return : true
+norm_advantage: true
+max_grad_norm: 40
+uni_obs_norm: true  
+xml_name: "default"
+planner_demean: false
+skel_uniform_prob: 0.0 
+
+seed: 0
+save_model_interval: 10
+
+value_specs:
+  htype: tanh
+  mlp: [512, 256]
+  design_flag_in_state: true
+
+  message_type: 'transformer'
+
+  transformer_specs:
+    pos_emb_type: index
+    block_depth: 3
+    hidden_dim: 64
+    norm_type: pre
+
+policy_specs:
+  attr_log_std: -2.3
+  fix_control_std: false
+  fix_attr_std: false
+
+  skel_message_type: 'transformer'
+  control_message_type: 'transformer'
+  attr_message_type: 'transformer'
+
+  skel_transformer_specs:
+    pos_emb_type: index
+    block_depth: 3
+    hidden_dim: 64
+    norm_type: pre
+
+  attr_transformer_specs:
+    pos_emb_type: index
+    block_depth: 3
+    hidden_dim: 64
+    norm_type: pre
+
+  control_transformer_specs:
+    pos_emb_type: index
+    block_depth: 3
+    hidden_dim: 64
+    norm_type: pre
+  
+  skel_shared_mlp:
+    hdims: [128, 128]
+    rescale_linear: true
+    max_index: 10
+  control_shared_mlp:
+    hdims: [128, 128]
+    rescale_linear: true
+    max_index: 10
+  attr_shared_mlp:
+    hdims: [128, 128]
+    rescale_linear: true
+    max_index: 10
+
+obs_specs:
+  use_body_depth_height: true
+  use_shortest_distance: true
+  use_position_encoding: true
