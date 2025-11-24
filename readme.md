@@ -84,7 +84,7 @@ python -m design_opt.train cfg=pusher lamda=5 gradient_ratio_limit=1.0
 
 ## 📊 Visualization and Results
 
-All experimental visualizations are hosted at this anonymous project page: [regalmoxie034f46-anonymous.netlify.app](regalmoxie034f46-anonymous.netlify.app)
+All experimental visualizations are hosted at this anonymous project page: <https://regalmoxie034f46-anonymous.netlify.app>
 
 Visit the website to explore:
 - Evolved morphologies and visualization across diverse robot locomotion and manipulation tasks
