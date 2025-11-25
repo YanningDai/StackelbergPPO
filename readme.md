@@ -19,10 +19,12 @@ Official implementation of the paper **“Efficient Morphology–Control Co-Desi
 ```bash
 cd StackelbergPPO
 ```
-2. Create the Conda environment
+2. Create the Conda environment and install dependencies
 ```bash
-conda env create -f environment.yml
+conda create -n StackelPPO python=3.9 -y
 conda activate StackelPPO
+conda install mesalib glew glfw patchelf -c conda-forge -y
+pip install -r requirements.txt
 ```
 
 3. Install MuJoCo 2.1.0
@@ -33,7 +35,9 @@ cd /tmp
 wget https://github.com/deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz
 tar -xf mujoco210-linux-x86_64.tar.gz -C ~/.mujoco
 ```
-Add environment variables:
+
+4. Add Environment Variables
+
 ```bash
 echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco210/bin:/usr/lib/nvidia' >> ~/.bashrc
 source ~/.bashrc
