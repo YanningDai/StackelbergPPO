@@ -1,4 +1,4 @@
-# Efficient Morphology–Control Co-Design via Stackelberg PPO
+# Morphology–Control Co-Design via Stackelberg PPO
 
 Official implementation of the paper: 
 
