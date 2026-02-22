@@ -1,6 +1,11 @@
 # Efficient Morphology–Control Co-Design via Stackelberg PPO
 
-Official implementation of the paper **“Efficient Morphology–Control Co-Design via Stackelberg PPO under Non-Differentiable Leader–Follower Interfaces”**.
+Official implementation of the paper: 
+
+**“Efficient Morphology-Control Co-Design via Stackelberg Proximal Policy Optimization”**, Yanning Dai†, Yuhui Wang†, Dylan R. Ashley, Jürgen Schmidhuber, International Conference on Learning Representations (ICLR), 2026.
+
+
+[Paper](https://openreview.net/pdf?id=sJ0vOOkclw) | [ArXiv](https://openreview.net/pdf?id=sJ0vOOkclw) | [Project Page](https://yanningdai.github.io/stackelberg-ppo-co-design/)
 
 <img src="static/m.png" alt="description">
 
@@ -88,14 +93,20 @@ python -m design_opt.train cfg=pusher lamda=5 gradient_ratio_limit=1.0
 
 ## 📊 Visualization and Results
 
-All experimental visualizations are hosted at this anonymous project page: <https://stackelberg-ppo-anonymous.netlify.app/>
-
-Visit the website to explore:
-- Evolved morphologies and visualization across diverse robot locomotion and manipulation tasks
-- Performance metrics and comparisons with state-of-the-art methods
-- Additional experiments on extended environments
+All experimental visualizations are hosted at this project page: <https://yanningdai.github.io/stackelberg-ppo-co-design>
 
 ## 🙏 Acknowledgements
 
-This project builds upon and is inspired by [BodyGen](https://github.com/Josh00-Lu/BodyGen) and [Transform2Act](https://github.com/Khrylx/Transform2Act). We gratefully acknowledge their excellent work! 
+This project builds upon and is inspired by [BodyGen](https://github.com/Josh00-Lu/BodyGen) and [Transform2Act](https://github.com/Khrylx/Transform2Act). We thank the authors for their excellent work! 
 
+## 📝 Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@inproceedings{dai2026stackelbergppo,
+  title     = {Efficient Morphology--Control Co-Design via Stackelberg Proximal Policy Optimization},
+  author    = {Dai, Yanning and Wang, Yuhui and Ashley, Dylan R. and Schmidhuber, Jürgen},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2026}
+}
