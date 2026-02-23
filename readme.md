@@ -2,7 +2,7 @@
 
 Official implementation of the paper: 
 
-**“Efficient Morphology-Control Co-Design via Stackelberg Proximal Policy Optimization”**, Yanning Dai†, Yuhui Wang†, Dylan R. Ashley, Jürgen Schmidhuber, International Conference on Learning Representations (ICLR), 2026.
+**“Efficient Morphology-Control Co-Design via Stackelberg Proximal Policy Optimization”**, Yanning Dai*, Yuhui Wang*, Dylan R. Ashley, Jürgen Schmidhuber, International Conference on Learning Representations (ICLR), 2026.
 
 
 [Paper](https://openreview.net/pdf?id=sJ0vOOkclw) | [ArXiv](https://openreview.net/pdf?id=sJ0vOOkclw) | [Project Page](https://yanningdai.github.io/stackelberg-ppo-co-design/)
